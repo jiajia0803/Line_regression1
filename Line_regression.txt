@@ -1,0 +1,39 @@
+Rdt = read.xls("C:/Users/Administrator/Desktop/new2.xls", header = T)
+colnames(dt)[1:9] = paste0("bac",1:9)
+fit1 = lm(drug~.,data=dt)
+summary(fit1)
+
+
+dt = read.csv("c://data/new2.csv", header = T)
+colnames(dt)[1:9] = paste0("bac",1:9)
+fit1 = lm(drug~.,data=dt)
+summary(fit1)
+C:/Users/zhang/Desktop
+
+
+dt <- read.csv("/raid1/ZhouJiaJia/drug1_capecitabine.csv", header = T)
+colnames(dt)[1:8] = paste0("bac",1:8)
+fit1 = lm(drug1_capecitabine~.,data=dt)
+ggplot(data=dt)+geom_point(mapping=aes(x=bac3,y=drug1_capecitabine))+geom_smooth(mapping=aes(x=bac3,y=drug1_capecitabine))
+
+ggplot(data=dt)+geom_point(mapping=aes(x=bac3,y=drug1_capecitabine))+geom_smooth(method = 'lm', aes(x=bac3,y=drug1_capecitabine) formula = y ~ x)
+
+
+dt <- read.csv("/raid1/ZhouJiaJia/drug1_capecitabine.csv", header = T)
+ggplot(mapping=aes(x = bac3, y = drug1_capecitabine))+geom_point(mapping=aes(x=bac3,y=drug1_capecitabine))+geom_smooth(method = 'lm', formula = drug1_capecitabine ~ bac3) #绘制回归直线
+stat_poly_eq(aes(label = paste(..eq.label.., ..adj.rr.label.., sep = '~~~~')), formula = drug1_capecitabine ~ bac3, parse = T) + #添加回归方程和调整R方
+stat_fit_tb(tb.type = 'fit.anova') + #添加方差分析表
+theme_classic() #设置主题为classic
+
+
+library(ggplot2)
+library(dplyr)
+library(ggpmisc)
+
+lm.sol<-lm(y6~x1+x2+x3+x4+x5+x6+x7+x8)                                                                        
+lm.sol1<-step(lm.sol)
+summary(lm.sol1)
+ggplot(mapping=aes(x = x1, y = y6)) + geom_point(aes(x = x1, y = y6)) + geom_smooth(method = 'lm', formula = y ~ x) + stat_poly_eq(aes(label = paste(..eq.label.., ..adj.rr.label.., sep = '~~~~')), formula = y ~ x, parse = T) + stat_fit_tb(tb.type = 'fit.anova') + theme_classic()
+
+
+
